@@ -26,8 +26,17 @@ $(document).ready(function () {
 //on click of the red x icon, remove the skill from the list
 $(document).on("click", ".fa-times", function () {
   $(this).parent().parent().remove();
+  //remove skill from local storage
+  localStorage.setItem("skills", $("#skills-list").html());
 });
 
+// $(document).ready(function () {
+//   $("#skills-list").html(localStorage.getItem("skills"));
+// });
+
+//get skills from local storage and display them on the page when id ="show-skills" is clicked
 $(document).ready(function () {
-  $("#skills-list").html(localStorage.getItem("skills"));
+  $("#show-skills").on("click", function () {
+    $("#skills-list").html(localStorage.getItem("skills"));
+  });
 });
